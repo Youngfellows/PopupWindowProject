@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="razerdp.basepopup">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.REORDER_TASKS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--    蒲公英要求权限：-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 获取网络状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />  <!-- 获取设备信息 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 获取MAC地址-->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.READ_LOGS" /> <!-- 获取logcat日志 -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+
+    <application
+        android:name="razerdp.demo.app.PopupDemoApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:resizeableActivity="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:overrideLibrary="com.pgyersdk">
+        <!-- 全面屏 -->
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="2.4" />
+
+        <!-- 危险区域绘制 -->
+        <!-- 华为 -->
+        <meta-data
+            android:name="android.notch_support"
+            android:value="true" />
+        <!-- 小米 -->
+        <meta-data
+            android:name="android.notch.config"
+            android:value="portrait|landscape" />
+        <!-- vivo -->
+        <meta-data
+            android:name="android.vendor.full_screen"
+            android:value="true" />
+        <meta-data
+            android:name="android.webkit.WebView.EnableSafeBrowsing"
+            android:value="false" />
+
+        <activity
+            android:name="razerdp.demo.DemoActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="razerdp.demo.ui.GuideActivity" />
+        <activity android:name="razerdp.demo.ui.CommonUsageActivity" />
+        <activity
+            android:name="razerdp.demo.ui.photobrowser.PhotoBrowserActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/PhotoBrowser"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity android:name="razerdp.demo.ui.issuestest.home.IssueHomeActivity" />
+
+        <activity android:name="razerdp.demo.ui.UpdateLogActivity" />
+        <activity android:name="razerdp.demo.ui.friendcircle.FriendCircleActivity" />
+        <activity android:name="razerdp.demo.ui.issuestest.Issue210TestActivity" />
+        <activity
+            android:name="razerdp.demo.ui.issuestest.Issue226TestActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="landscape" />
+        <activity android:name="razerdp.demo.ui.issuestest.Issue230TestActivity" />
+        <activity android:name="razerdp.demo.ui.issuestest.Issue236TestActivity" />
+        <activity android:name="razerdp.demo.ui.issuestest.Issue238TestActivity" />
+        <activity android:name="razerdp.demo.ui.issuestest.Issue242TestActivity" />
+        <activity android:name="razerdp.demo.ui.lifecycle.ShowOnCreateActivity" />
+        <activity android:name="razerdp.demo.ui.ApiListActivity" />
+        <activity android:name="razerdp.demo.ui.apidemo.ApiDemoActivity" />
+        <activity
+            android:name="razerdp.demo.ui.issuestest.Issue224TestActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity android:name="razerdp.demo.ui.fullscreen.FullScreenActivity" />
+        <activity android:name="razerdp.demo.ui.rtl.RTLActivity" />
+
+        <!--更改为 adjustPan 键盘不会遮挡弹窗输入框-->
+        <activity
+            android:name="razerdp.demo.ui.issuestest.Issue277TestActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name="razerdp.demo.ui.dialog.DialogActivity"
+            android:theme="@style/DialogTheme" />
+        <activity android:name="razerdp.demo.ui.issuestest.Issue358TestActivity" />
+
+        <service android:name="razerdp.demo.services.DemoService" />
+        <service android:name="razerdp.demo.services.DelayDemoService" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths_public_popup" />
+        </provider>
+
+    </application>
+
+</manifest>

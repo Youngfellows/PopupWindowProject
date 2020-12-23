@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/popupwindow_content_width"
+    android:layout_height="wrap_content"
+    android:backgroundTint="@color/colorAccent"
+    android:background="@drawable/img_popupmenu_bg"
+    android:orientation="vertical"
+    android:padding="1dp">
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/menu_item1"
+            style="@style/menu_item_text_style"
+            android:text="@string/menu_item1" />
+
+        <View
+            style="@style/menu_item_divider_style"/>
+
+        <TextView
+            android:id="@+id/menu_item2"
+            style="@style/menu_item_text_style"
+            android:text="@string/menu_item2" />
+
+        <View
+            style="@style/menu_item_divider_style"/>
+
+        <TextView
+            android:id="@+id/menu_item3"
+            style="@style/menu_item_text_style"
+            android:text="@string/menu_item3" />
+
+        <View
+            style="@style/menu_item_divider_style"/>
+
+        <TextView
+            android:id="@+id/menu_item4"
+            style="@style/menu_item_text_style"
+            android:text="@string/menu_item4" />
+
+        <View
+            style="@style/menu_item_divider_style"/>
+
+        <TextView
+            android:id="@+id/menu_item5"
+            style="@style/menu_item_text_style"
+            android:text="@string/menu_item5" />
+    </LinearLayout>
+
+</LinearLayout>
